@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src 'self' data: content:;style-src 'self' 'unsafe-inline' https://fonts.googleapis.com data: blob:;script-src * 'unsafe-inline' data: blob:;">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0, target-densitydpi=device-dpi">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style>
+        body {
+            margin: 0px;/*This removes the border around the canvas that Phaser adds, making the game actually take up all the available space*/
+        }
+    </style>
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+</body>
+</html>

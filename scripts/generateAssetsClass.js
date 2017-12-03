@@ -7,12 +7,28 @@ var webpackConfig;
 
 commander
     .option('--dev', 'Use webpack.dev.config.js for some values, excluding this will use webpack.dist.config.js (currently only GOOGLE_WEB_FONTS is being used).')
+    .option('--cordova', 'Use webpack-cordova.*.config.js for some values, excluding this will use webpack.*.config.js')
     .parse(process.argv);
 
-if (commander.dev) {
-    webpackConfig = require('../webpack.dev.config.js');
+if (commander.cordova)
+{
+    if (commander.dev)
+    {
+        webpackConfig = require('../webpack-cordova.dev.config.js');
+    }
+    else
+    {
+        webpackConfig = require('../webpack-cordova.dist.config.js');
+    }
 } else {
-    webpackConfig = require('../webpack.dist.config.js');
+    if (commander.dev)
+    {
+        webpackConfig = require('../webpack.dev.config.js');
+    }
+    else
+    {
+        webpackConfig = require('../webpack.dist.config.js');
+    }
 }
 
 function toCamelCase(string) {
